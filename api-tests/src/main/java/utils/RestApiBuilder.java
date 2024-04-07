@@ -1,5 +1,7 @@
 package utils;
 
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.specification.RequestSpecification;
@@ -20,6 +22,7 @@ public class RestApiBuilder {
                 )
                 .contentType("application/json")
                 .relaxedHTTPSValidation();
+        RestAssured.filters(new AllureRestAssured());
     }
 
     public RequestSpecification build() {
