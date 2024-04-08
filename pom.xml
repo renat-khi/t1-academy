@@ -29,6 +29,7 @@
         <assertj-core.version>3.25.3</assertj-core.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <aspectjweaver.version>1.9.22</aspectjweaver.version>
+        <owner.version>1.0.12</owner.version>
     </properties>
 
     <profiles>
@@ -58,6 +59,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+            <dependency>
+                <groupId>org.aeonbits.owner</groupId>
+                <artifactId>owner</artifactId>
+                <version>${owner.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
             <dependency>
                 <groupId>org.aspectj</groupId>
@@ -123,6 +130,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
         </dependency>
@@ -164,9 +179,6 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
-                <configuration>
-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>
